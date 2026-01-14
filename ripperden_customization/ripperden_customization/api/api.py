@@ -29,6 +29,3 @@ def calculate_and_add_running_time(doc, method=None):
         current_time + printing_time
     )
 
-    frappe.msgprint(
-        f"Running time updated for Workstation {work_order.custom_printer}"
-    )
