@@ -29,3 +29,32 @@ def calculate_and_add_running_time(doc, method=None):
         current_time + printing_time
     )
 
+
+import frappe
+from datetime import datetime, timedelta
+
+def delete_old_error_logs_job():
+    try:
+        rs = frappe.get_single("Ripperden Settings")
+
+        if not rs.is_active:
+            return
+
+        days = int(rs.delete_logs_older_than or 0)
+
+        if days <= 0:
+            return
+
+        cutoff_time = datetime.utcnow() - timedelta(days=days)
+
+        frappe.db.sql("""
+            DELETE FROM `tabError Log`
+            WHERE creation < %s
+        """, (cutoff_time,))
+
+        frappe.db.commit()
+
+        frappe.logger().info(f"Deleted logs older than {days} days")
+
+    except Exception:
+        frappe.log_error(frappe.get_traceback(), "Error Log Cleanup Failed")

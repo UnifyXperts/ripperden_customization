@@ -1,0 +1,32 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-04-15 16:14:28.985597",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-05-05 11:17:11.955762",
+ "modified_by": "Administrator",
+ "module": "Ripperden Customization",
+ "name": "Running Time",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT \r\n    wo.custom_printer,\r\n    wo.name AS work_order,\r\n    wo.custom_total_running_time AS running_time\r\nFROM `tabWork Order` wo\r\nORDER BY wo.custom_printer, wo.name;",
+ "ref_doctype": "Workstation",
+ "report_name": "Running Time",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Manufacturing User"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

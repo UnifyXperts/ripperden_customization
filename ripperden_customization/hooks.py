@@ -146,23 +146,15 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"ripperden_customization.tasks.all"
-# 	],
-# 	"daily": [
-# 		"ripperden_customization.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"ripperden_customization.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"ripperden_customization.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"ripperden_customization.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"cron": {
+       
+        "0 0 * * *": [
+            "ripperden_customization.ripperden_customization.api.api.delete_old_error_logs"
+        ]
+    }
+	
+}
 
 # Testing
 # -------
