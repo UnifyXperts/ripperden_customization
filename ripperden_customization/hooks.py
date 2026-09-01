@@ -28,6 +28,10 @@ app_license = "mit"
 # app_include_css = "/assets/ripperden_customization/css/ripperden_customization.css"
 # app_include_js = "/assets/ripperden_customization/js/ripperden_customization.js"
 
+app_include_js = [
+    "/assets/easypost_connector/js/qz-tray.js"
+]
+
 # include js, css files in header of web template
 # web_include_css = "/assets/ripperden_customization/css/ripperden_customization.css"
 # web_include_js = "/assets/ripperden_customization/js/ripperden_customization.js"
@@ -146,15 +150,15 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-scheduler_events = {
-	"cron": {
+# scheduler_events = {
+# 	"cron": {
        
-        "0 0 * * *": [
-            "ripperden_customization.ripperden_customization.api.api.delete_old_error_logs"
-        ]
-    }
+#         "0 0 * * *": [
+#             "ripperden_customization.ripperden_customization.api.api.delete_old_error_logs"
+#         ]
+#     }
 	
-}
+# }
 
 # Testing
 # -------
